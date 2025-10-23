@@ -1,0 +1,471 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open+Sans', sans-serif;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  background-color: #0b0b0b;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+::-webkit-scrollbar-thumb {
+  background-color: orangered;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: orangered;
+}
+
+/* ---------------- NAVBAR ---------------- */
+nav {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.logo span {
+  color: orangered;
+  text-shadow: 0 0 10px orangered;
+}
+
+/* Navbar links */
+.links {
+  display: flex;
+  gap: 20px;
+}
+.links a {
+  position: relative;
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s linear;
+}
+.links a::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: orangered;
+  transition: 0.3s linear;
+}
+.links a:hover::before {
+  width: 100%;
+}
+.links a:hover {
+  color: orangered;
+}
+
+/* Checkbox hack */
+#menu-toggle {
+  display: none;
+}
+.hamburg,
+.cancel {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .links {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  #menu-toggle:checked ~ .links {
+    transform: translateY(0);
+  }
+  .hamburg {
+    display: block;
+  }
+  #menu-toggle:checked ~ .hamburg {
+    display: none;
+  }
+  #menu-toggle:checked ~ .cancel {
+    display: block;
+  }
+}
+
+/* ---------------- HERO SECTION ---------------- */
+section {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  width: 90%;
+  flex-wrap: wrap;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 30px orangered;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image:hover {
+  animation: animate 1.5s ease-in-out infinite;
+}
+@keyframes animate {
+  0% { scale: 1; }
+  50% { scale: 1.05; }
+  100% { scale: 1; }
+}
+
+.content {
+  flex: 1;
+  color: white;
+}
+.content h1 {
+  font-size: clamp(1.5rem, 1rem + 3vw, 2.5rem);
+}
+.content h1 span {
+  color: orangered;
+  text-shadow: 0 0 10px orangered;
+}
+.typewriter {
+  margin: 10px 0;
+  font-size: clamp(1rem, 1rem + 2vw, 2rem);
+  font-weight: 600;
+}
+p {
+  margin: 20px 0;
+  line-height: 1.6;
+  color: #ddd;
+}
+.social-links a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: white;
+  transition: 0.3s;
+}
+.social-links a:hover {
+  color: orangered;
+}
+.btn button {
+  padding: 10px 20px;
+  background: orangered;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn button:hover {
+  background: white;
+  color: orangered;
+}
+
+/* ---------------- ABOUT ---------------- */
+
+.about {
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.about .title {
+  font-size: 2rem;
+  color: orangered;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px orangered;
+}
+
+.about .topic {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: orangered;
+}
+
+.about p {
+  color: #ddd;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 600px;
+}
+
+
+/* ---------------- CONTAINER CLASS FOR CENTERING ---------------- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---------------- SKILLS ---------------- */
+.skills {
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+  
+}
+.title span {
+  text-shadow: 0 0 10px orangered;
+}
+.skills .title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: orangered;
+}
+.skills .boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.skills .box {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #222;
+  text-align: center;
+  width: 150px;
+  border: 1px solid #222;
+}
+.skills .box .topic {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.skills .box .per {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: orangered;
+}
+/* ----------------projects------------------- */
+.Projects {
+  padding: 50px 20px;
+}
+.title span {
+  text-shadow: 0 0 10px orangered;
+}
+.Projects .title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: orangered;
+}
+.Projects .boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.Projects .box {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #222;
+  text-align: center;
+  width: 400px;
+  color: white;
+  border: 1px solid #222;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Projects .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px orangered;
+}
+
+.Projects .box .topic {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.Projects .box .per {
+  font-size: 1rem;
+  font-weight: 400;
+  color: orangered;
+}
+.Projects {
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+}
+@media (max-width: 600px) {
+  .Projects .boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Projects .box {
+    width: 80%;
+  }
+}
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+ 
+  background: linear-gradient(90deg, orangered, darkorange);
+
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, darkorange, orangered);
+}
+
+
+
+/* ----------------CERTIFICATES--------------- */
+.certificates {
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+  
+}
+.certificates .title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: orangered;
+}
+.title span {
+  text-shadow: 0 0 10px orangered;
+}
+.certificates .boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.certificates .box {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #222;
+  text-align: center;
+  width: 190px;
+  border: 1px solid #222;
+}
+.certificates .box .topic {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.certificates .box .per {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: orangered;
+}
+
+/* ---------------- EDUCATION ---------------- */
+.education {
+  padding: 50px 20px;
+}
+.title span {
+  text-shadow: 0 0 10px orangered;
+}
+.education .title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: orangered;
+}
+.education .boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.education .box {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #222;
+  width: 250px;
+  text-align: center;
+}
+.education .icon {
+  font-size: 2rem;
+  color: orangered;
+  margin-bottom: 10px;
+}
+.education h1 {
+  color: orangered;
+  margin-top: 10px;
+}
+
+/* ---------------- CONTACT ---------------- */
+#contact {
+  padding: 50px 20px;
+  text-align: center;
+}
+.title span {
+  text-shadow: 0 0 10px orangered;
+}
+#contact .title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: orangered;
+}
